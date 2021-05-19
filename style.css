@@ -6,6 +6,6 @@ main{
     margin: auto;
 }
 
-div{
+.cell{
     border: 1px solid black;
 }
