@@ -1,0 +1,11 @@
+main{
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
+    grid-template-rows: repeat(3, minmax(150px, 1fr));
+    margin: auto;
+}
+
+div{
+    border: 1px solid black;
+}
