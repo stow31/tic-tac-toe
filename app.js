@@ -1,12 +1,16 @@
 //Declare variables 
 //DOM Elements
 var cells = document.querySelectorAll('.cell-div');
-var playerTurnSection = document.querySelector('.players-turn-section')
+var playerTurnSection = document.querySelector('.players-turn-section');
+var gameOverDiv = document.querySelector('.game-over-div');
+var winnerDiv = document.querySelector('.winner-div');
+var resetBtn = document.querySelector('.reset-btn');
 
 //General Elements
 // 1 = player 1, 2 = player 2
 var playerID = 1;
-var counter = 0;
+var xCounter = 0;
+var oCounter = 0;
 var winningCombos = [
     [0,1,2],
     [3,4,5],
@@ -23,15 +27,12 @@ function handleClick(e){
     var cell = e.target;
 
     if (playerID === 1){
-        cell.style.backgroundColor = 'red'
+        cell.textContent = 'X'
     } else {
-        cell.style.backgroundColor = 'blue'
+        cell.textContent = 'O'
     }
 
-    if(checkforWinner()){
-        console.log("There is a winner");
-    }
-    
+    announceWinner()
     changePlayer();
 }
 
@@ -49,20 +50,70 @@ function changePlayer(){
 function checkforWinner(){
     for(var j=0; j<winningCombos.length; j++){
         for (var i=winningCombos[j][0]; i<=winningCombos[j][2]; i+=winningCombos[j][1]-winningCombos[j][0]){
-            if (cells[i].style.backgroundColor === 'red'){
-                counter ++
-
-                if (counter === 3){
-                    return true;
+            if (cells[i].textContent === 'X'){
+                xCounter ++
+                if (xCounter === 3){
+                    return 'X';
+                }
+            } else if (cells[i].textContent === 'O'){
+                oCounter ++
+                if (oCounter === 3){
+                    return 'O';
                 }
             }
         }
-        counter = 0
+        xCounter = 0
+        oCounter = 0
     }
+
     return false;
+}
+
+function checkIfTie() {
+    for (let i = 0; i < cells.length; i++) {
+        if(cells[i].textContent === ''){
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function announceWinner(){
+
+    var winner = checkforWinner();
+
+    if(winner === 'X'){
+        console.log("X wins");
+        gameOverDiv.hidden = false;
+        winnerDiv.textContent = `X Wins`
+        return
+    } else if(winner === 'O'){
+        console.log("O wins");
+        gameOverDiv.hidden = false;
+        winnerDiv.textContent = `O Wins`
+        return
+    } else if (checkIfTie()){
+        console.log("It's a tie");
+        gameOverDiv.hidden = false;
+        winnerDiv.textContent = `It's a tie`
+        return
+    }
+}
+
+function handleReset(){
+    xCounter = 0;
+    oCounter = 0;
+    for(var i=0; i<cells.length; i++){
+        cells[i].textContent = ''
+    }
+    gameOverDiv.hidden = true;
 }
 
 //Events
 for(var i=0; i<cells.length; i++){
     cells[i].addEventListener('click', handleClick)
 }
+
+resetBtn.addEventListener('click', handleReset)
+

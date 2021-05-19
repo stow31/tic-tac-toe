@@ -6,25 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 <body>
-    <h1>Tic Tac Toe</h1>
-    <main>
-        <div class="cell-div">0</div>
-        <div class="cell-div">1</div>
-        <div class="cell-div">2</div>
-        <div class="cell-div">3</div>
-        <div class="cell-div">4</div>
-        <div class="cell-div">5</div>
-        <div class="cell-div">6</div>
-        <div class="cell-div">7</div>
-        <div class="cell-div">8</div>
-    </main>
-    <div class="game-details-div">
-        <section class="players-turn-section">
-            Player 1's turn
-        </section>
+    <header>
+        <h1>Tic Tac Toe</h1>
+
+        <div class="game-details-div">
+            <section class="players-turn-section">
+                Player 1's turn
+            </section>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="grid-container">
+            <div class="cell-div" style="border-top: none; border-left: none;"></div>
+            <div class="cell-div" style="border-top: none;"></div>
+            <div class="cell-div" style="border-top: none; border-right: none;"></div>
+            <div class="cell-div" style="border-left: none;"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div" style="border-right: none;"></div>
+            <div class="cell-div" style="border-left: none; border-bottom: none;"></div>
+            <div class="cell-div" style="border-bottom: none;"></div>
+            <div class="cell-div" style="border-right: none; border-bottom: none;"></div>
+        </div>
+        <div class="game-over-div animate__animated animate__fadeIn" hidden>
+            <div class="winner-div"></div>
+            <button class="reset-btn">Reset</button>
+        </div>
     </div>
+    
+
+
+
     <script src="app.js"></script>
 </body>
 </html>
