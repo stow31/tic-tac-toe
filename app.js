@@ -6,7 +6,17 @@ var playerTurnSection = document.querySelector('.players-turn-section')
 //General Elements
 // 1 = player 1, 2 = player 2
 var playerID = 1;
-
+var counter = 0;
+var winningCombos = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [2,4,6],
+    [0,4,8]
+]
 
 //Functions 
 function handleClick(e){
@@ -37,12 +47,19 @@ function changePlayer(){
 }
 
 function checkforWinner(){
-    for (var i=0; i<3; i++){
-        if (cells[i].style.backgroundColor != 'red'){
-            return false;
+    for(var j=0; j<winningCombos.length; j++){
+        for (var i=winningCombos[j][0]; i<=winningCombos[j][2]; i+=winningCombos[j][1]-winningCombos[j][0]){
+            if (cells[i].style.backgroundColor === 'red'){
+                counter ++
+
+                if (counter === 3){
+                    return true;
+                }
+            }
         }
+        counter = 0
     }
-    return true;
+    return false;
 }
 
 //Events
