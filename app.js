@@ -8,6 +8,8 @@ var resetBtn = document.querySelector('.reset-btn');
 
 //General Elements
 // 1 = player 1, 2 = player 2
+var playerXName = prompt('Welcome player one, you will be crosses, what is your name?')
+var playerOName = prompt('Welcome player two, you will be Os, what is your name?')
 var playerID = 1;
 var xCounter = 0;
 var oCounter = 0;
@@ -21,6 +23,8 @@ var winningCombos = [
     [2,4,6],
     [0,4,8]
 ]
+
+playerTurnSection.textContent = `${playerXName} you're up first!`
 
 //Functions 
 function handleClick(e){
@@ -36,28 +40,51 @@ function handleClick(e){
     changePlayer();
 }
 
+function announceWinner(){
+
+    var winner = checkforWinner();
+
+    if(winner === 'X'){
+        console.log("X wins");
+        gameOverDiv.style.display = 'flex';
+        winnerDiv.textContent = `${playerXName} with the X's Wins!`
+        return
+    } else if(winner === 'O'){
+        console.log("O wins");
+        gameOverDiv.style.display = 'flex';
+        winnerDiv.textContent = `${playerOName} with the O's Wins!`
+        return
+    } else if (checkIfTie()){
+        console.log("It's a tie");
+        gameOverDiv.style.display = 'flex';
+        winnerDiv.textContent = `${playerXName} and ${playerOName} you tied!! A rematch?`
+        return
+    }
+}
+
 function changePlayer(){
     if (playerID === 1){
-        playerTurnSection.textContent = `O turn`;
+        playerTurnSection.textContent = `${playerOName}'s turn with the Os`;
        return playerID = 2;
     } else {
-        playerTurnSection.textContent = `X turn`;
+        playerTurnSection.textContent = `${playerXName}'s turn with the Xs`;
         return playerID = 1;
     }
 
 }
 
 function checkforWinner(){
+    debugger
     for(var j=0; j<winningCombos.length; j++){
         for (var i=winningCombos[j][0]; i<=winningCombos[j][2]; i+=winningCombos[j][1]-winningCombos[j][0]){
             if (cells[i].textContent === 'X'){
                 xCounter ++
-                if (xCounter === 3){
+                if (xCounter === winningCombos[j].length){
                     return 'X';
                 }
             } else if (cells[i].textContent === 'O'){
                 oCounter ++
-                if (oCounter === 3){
+                if (oCounter === winningCombos[j].length){
                     return 'O';
                 }
             }
@@ -77,28 +104,6 @@ function checkIfTie() {
     }
 
     return true;
-}
-
-function announceWinner(){
-
-    var winner = checkforWinner();
-
-    if(winner === 'X'){
-        console.log("X wins");
-        gameOverDiv.style.display = 'flex';
-        winnerDiv.textContent = `X Wins`
-        return
-    } else if(winner === 'O'){
-        console.log("O wins");
-        gameOverDiv.style.display = 'flex';
-        winnerDiv.innerHTML = '<span class="bubble-font">O</span> WINS'
-        return
-    } else if (checkIfTie()){
-        console.log("It's a tie");
-        gameOverDiv.style.display = 'flex';
-        winnerDiv.textContent = `It's a tie`
-        return
-    }
 }
 
 function handleReset(){

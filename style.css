@@ -5,6 +5,17 @@
     box-sizing: border-box;
 }
 
+header{
+    margin-bottom: 25px;
+}
+
+h1{
+    font-family: 'Londrina Outline', cursive;
+    font-size: 86px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
 body{
     text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -17,19 +28,23 @@ body{
     display: grid;
     place-items: center;
     margin-top: 25px;
+    max-width: 600px;
+    margin: auto;
 }
 
 .grid-container{
-    width: 70%;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, minmax(50px, 1fr));
     grid-template-rows: repeat(3, minmax(150px, 1fr));
-    margin: auto;
     font-size: 100px;
+    background-color: white;
+    border-radius: 26px;
+    box-shadow: 10px 10px 12px #e5e5e5;
 }
 
 .cell-div{
-    border: 1px solid black;
+    border: 3px solid black;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -45,16 +60,17 @@ body{
 .game-over-div{
     height: 300px;
     width: 500px;
-    border: 30px solid black;
+    border: 30px solid #d9d0bb;
     background-color: rgba(255, 204, 204, 0.90);
     position: absolute;
     display: none;
     place-items: center;
-    font-size: 60px;
+    font-size: 37px;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    border-radius: 20px 20px 20px 20px
+    border-radius: 20px 20px 20px 20px;
+    color: white;
 }
 
 .reset-btn{
@@ -62,7 +78,12 @@ body{
     padding: 7px 28px;
     border-radius: 13px;
     text-transform: uppercase;
-    margin-top: 15px;
+    margin-top: 23px;
+    border: 3px solid white;
+    box-shadow: 5px 5px 12px white;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 15px;
 }
 
 
