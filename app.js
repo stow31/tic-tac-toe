@@ -38,10 +38,10 @@ function handleClick(e){
 
 function changePlayer(){
     if (playerID === 1){
-        playerTurnSection.textContent = `Player 2's turn`;
+        playerTurnSection.textContent = `O turn`;
        return playerID = 2;
     } else {
-        playerTurnSection.textContent = `Player 1's turn`;
+        playerTurnSection.textContent = `X turn`;
         return playerID = 1;
     }
 
@@ -85,17 +85,17 @@ function announceWinner(){
 
     if(winner === 'X'){
         console.log("X wins");
-        gameOverDiv.hidden = false;
+        gameOverDiv.style.display = 'flex';
         winnerDiv.textContent = `X Wins`
         return
     } else if(winner === 'O'){
         console.log("O wins");
-        gameOverDiv.hidden = false;
-        winnerDiv.textContent = `O Wins`
+        gameOverDiv.style.display = 'flex';
+        winnerDiv.innerHTML = '<span class="bubble-font">O</span> WINS'
         return
     } else if (checkIfTie()){
         console.log("It's a tie");
-        gameOverDiv.hidden = false;
+        gameOverDiv.style.display = 'flex';
         winnerDiv.textContent = `It's a tie`
         return
     }
@@ -107,7 +107,7 @@ function handleReset(){
     for(var i=0; i<cells.length; i++){
         cells[i].textContent = ''
     }
-    gameOverDiv.hidden = true;
+    gameOverDiv.style.display = 'none';
 }
 
 //Events
