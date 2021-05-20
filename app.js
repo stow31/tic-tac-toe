@@ -61,9 +61,10 @@ function handleAssignPlayerValue(e){
     if(cell.textContent === ''){
         if (playerID === 1){
             cell.textContent = 'X'
+            cell.style.color = 'rgb(255, 204, 204)'
         } else {
             cell.textContent = 'O'
-            var playerOPoints = 0
+            cell.style.color = 'rgb(196, 219, 232)'
         }
         announceWinner()
         changePlayer();
@@ -126,6 +127,7 @@ function checkforWinner3x3(){
             if (cells3x3[i].textContent === 'X'){
                 xCounter ++
                 if (xCounter === winningCombos[j].length){
+                    // console.log(winningCombos[j]);
                     return 'X';
                 }
             } else if (cells3x3[i].textContent === 'O'){

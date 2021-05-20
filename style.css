@@ -118,13 +118,14 @@ input:checked + .slider:before {
     background-color: white;
     border-radius: 26px;
     box-shadow: 10px 10px 12px #e5e5e5;
+    font-weight: 900;
 }
 
 .grid-container-4x4{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-
+    font-weight: 900;
     grid-template-rows: repeat(4, minmax(150px, 1fr));
     font-size: 100px;
     background-color: white;
