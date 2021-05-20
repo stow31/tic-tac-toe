@@ -1,15 +1,21 @@
 //Declare variables 
 //DOM Elements
+var switchValue = document.querySelector('.switch input')
 var cells = document.querySelectorAll('.cell-div');
 var playerTurnSection = document.querySelector('.players-turn-section');
+
+var gridContainer3X3 = document.querySelector('.grid-container')
+var gridContainer4X4 = document.querySelector('.grid-container-4x4')
+
 var gameOverDiv = document.querySelector('.game-over-div');
 var winnerDiv = document.querySelector('.winner-div');
 var resetBtn = document.querySelector('.reset-btn');
 
 //General Elements
+//Update these to prompts later
+var playerXName = 'Sophie'
+var playerOName = 'Cameron'
 // 1 = player 1, 2 = player 2
-var playerXName = prompt('Welcome player one, you will be crosses, what is your name?')
-var playerOName = prompt('Welcome player two, you will be Os, what is your name?')
 var playerID = 1;
 var xCounter = 0;
 var oCounter = 0;
@@ -21,7 +27,11 @@ var winningCombos = [
     [1,4,7],
     [2,5,8],
     [2,4,6],
-    [0,4,8]
+    [0,4,8],
+]
+var winningCombos4x4 = [
+    [0,1,2,3],
+    [4,5,6,7]
 ]
 
 playerTurnSection.textContent = `${playerXName} you're up first!`
@@ -42,7 +52,11 @@ function handleClick(e){
 
 function announceWinner(){
 
-    var winner = checkforWinner();
+    // set up new fnt here
+    // if(){
+
+    // }
+    var winner = checkforWinner4x4();
 
     if(winner === 'X'){
         console.log("X wins");
@@ -74,7 +88,6 @@ function changePlayer(){
 }
 
 function checkforWinner(){
-    debugger
     for(var j=0; j<winningCombos.length; j++){
         for (var i=winningCombos[j][0]; i<=winningCombos[j][2]; i+=winningCombos[j][1]-winningCombos[j][0]){
             if (cells[i].textContent === 'X'){
@@ -92,7 +105,28 @@ function checkforWinner(){
         xCounter = 0
         oCounter = 0
     }
+    return false;
 
+}
+
+function checkforWinner4x4(){
+    for(var j=0; j<winningCombos4x4.length; j++){
+        for (var i=winningCombos4x4[j][0]; i<=winningCombos4x4[j][3]; i+=winningCombos4x4[j][1]-winningCombos4x4[j][0]){
+            if (cells[i].textContent === 'X'){
+                xCounter ++
+                if (xCounter === winningCombos4x4[j].length){
+                    return 'X';
+                }
+            } else if (cells[i].textContent === 'O'){
+                oCounter ++
+                if (oCounter === winningCombos4x4[j].length){
+                    return 'O';
+                }
+            }
+        }
+        xCounter = 0
+        oCounter = 0
+    }
     return false;
 }
 
@@ -104,6 +138,16 @@ function checkIfTie() {
     }
 
     return true;
+}
+
+function handleChangeGrid(){
+    if (switchValue.checked){
+        gridContainer3X3.classList.add('hidden')
+        gridContainer4X4.classList.remove('hidden')
+    } else {
+        gridContainer3X3.classList.remove('hidden')
+        gridContainer4X4.classList.add('hidden')
+    }
 }
 
 function handleReset(){
@@ -121,4 +165,6 @@ for(var i=0; i<cells.length; i++){
 }
 
 resetBtn.addEventListener('click', handleReset)
+switchValue.addEventListener('click', handleChangeGrid)
+
 

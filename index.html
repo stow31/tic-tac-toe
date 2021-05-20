@@ -14,15 +14,27 @@
 <body>
     <header>
         <h1>Tic Tac Toe</h1>
+        
+        <div class="switch-div">
+            <p>3x3</p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <p>4x4</p>
+        </div>
 
+        
         <div class="game-details-div">
             <section class="players-turn-section">
-                Player 1's turn
             </section>
         </div>
+
+
     </header>
 
     <div class="container animate__animated animate__slideInUp">
+
         <div class="grid-container">
             <div class="cell-div" style="border-top: none; border-left: none;"></div>
             <div class="cell-div" style="border-top: none;"></div>
@@ -34,15 +46,33 @@
             <div class="cell-div" style="border-bottom: none;"></div>
             <div class="cell-div" style="border-right: none; border-bottom: none;"></div>
         </div>
+
+        <div class="grid-container-4x4 hidden">
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>
+            <div class="cell-div"></div>    
+        </div>
+
         <div class="game-over-div animate__animated animate__fadeIn" hidden>
             <div class="winner-div"></div>
             <button class="reset-btn">New Game</button>
         </div>
+
     </div>
     
-
-
-
     <script src="app.js"></script>
 </body>
 </html>
