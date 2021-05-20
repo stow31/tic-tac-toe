@@ -12,6 +12,7 @@ header{
 .switch-div{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 h1{
@@ -43,7 +44,6 @@ body{
     width: 60px;
     height: 34px;
     margin: 0px 21px;
-    margin-bottom: 10px;
 }
 
 .switch input {
@@ -77,11 +77,11 @@ body{
 }
 
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: rgb(255, 204, 204);
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px rgb(255, 204, 204);
 }
 
 input:checked + .slider:before {
@@ -142,17 +142,19 @@ input:checked + .slider:before {
 .game-over-div{
     height: 300px;
     width: 500px;
-    border: 30px solid #d9d0bb;
+    border: 10px solid #d9d0bb;
     background-color: rgba(255, 204, 204, 0.90);
     position: absolute;
     display: none;
     place-items: center;
     font-size: 37px;
+    font-weight: 900;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     border-radius: 20px 20px 20px 20px;
     color: white;
+    box-shadow: 1px 0px 12px 9px #e5e5e5;
 }
 
 .reset-btn{
@@ -162,7 +164,7 @@ input:checked + .slider:before {
     text-transform: uppercase;
     margin-top: 23px;
     border: 3px solid white;
-    box-shadow: 5px 5px 12px white;
+    box-shadow: -1px 0px 12px 3px white;
     font-family: 'Roboto', sans-serif;
     color: white;
     font-size: 15px;

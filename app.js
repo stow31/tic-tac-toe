@@ -149,9 +149,17 @@ function checkforWinner4x4(){
 
 // TO DO: need to set this up for 3x3 vs 4x4 grid
 function checkIfTie() {
-    for (let i = 0; i < cells.length; i++) {
-        if(cells[i].textContent === ''){
-            return false;
+    if (switchValue.checked){
+        for (let i = 0; i < cells4x4.length; i++) {
+            if(cells4x4[i].textContent === ''){
+                return false;
+            }
+        }
+    } else { 
+        for (let i = 0; i < cells3x3.length; i++) {
+            if(cells3x3[i].textContent === ''){
+                return false;
+            }
         }
     }
 
