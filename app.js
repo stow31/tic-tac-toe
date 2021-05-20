@@ -7,11 +7,16 @@ var containerDiv = document.querySelector('.container-div');
 var cells = document.querySelectorAll('.cell-div');
 var cells3x3 = document.querySelectorAll('.size3x3');
 var cells4x4 = document.querySelectorAll('.size4x4');
-var playerTurnSection = document.querySelector('.players-turn-section');
 var gridContainer3X3 = document.querySelector('.grid-container-3x3')
 var gridContainer4X4 = document.querySelector('.grid-container-4x4')
 var gameOverDiv = document.querySelector('.game-over-div');
 var winnerDiv = document.querySelector('.winner-div');
+var newGameBtn = document.querySelector('.new-game-btn');
+var playersTurnName = document.querySelector('.players-turn-name');
+var playerXNameContainer = document.querySelector('.player-x-name');
+var playerXPointsContainer = document.querySelector('.players-x-points');
+var playerONameContainer = document.querySelector('.player-o-name');
+var playerOPointsContainer = document.querySelector('.players-o-points');
 var resetBtn = document.querySelector('.reset-btn');
 
 //General Elements
@@ -46,16 +51,18 @@ var winningCombos4x4 = [
 
 ]
 
-playerTurnSection.textContent = `${playerXName} you're up first!`
+playersTurnName.textContent = `${playerXName} you're up first!`
+playerXNameContainer.textContent = `${playerXName}'s Points (X)`
+playerONameContainer.textContent = `${playerOName}'s Points (O)` 
 
 //Functions 
 function handleClick(e){
     var cell = e.target;
-
     if (playerID === 1){
         cell.textContent = 'X'
     } else {
         cell.textContent = 'O'
+        var playerOPoints = 0
     }
 
     announceWinner()
@@ -66,12 +73,20 @@ function announceWinner(){
     var winner = whichGameIsBeingPlayed();
 
     if(winner === 'X'){
-        console.log("X wins");
+        // could move to function --start
+        var playerXPoints = Number(playerXPointsContainer.textContent);
+        playerXPoints++;
+        playerXPointsContainer.textContent = playerXPoints;
+        // could move to function --end
         gameOverDiv.style.display = 'flex';
         winnerDiv.textContent = `${playerXName} with the X's Wins!`
         return
     } else if(winner === 'O'){
-        console.log("O wins");
+        // could move to function --start
+        var playerOPoints = Number(playerOPointsContainer.textContent);
+        playerOPoints++;
+        playerOPointsContainer.textContent = playerOPoints;
+        // could move to function --end
         gameOverDiv.style.display = 'flex';
         winnerDiv.textContent = `${playerOName} with the O's Wins!`
         return
@@ -95,10 +110,10 @@ function whichGameIsBeingPlayed(){
 
 function changePlayer(){
     if (playerID === 1){
-        playerTurnSection.textContent = `${playerOName}'s turn with the Os`;
+        playersTurnName.textContent = `${playerOName}'s turn with the Os`;
        return playerID = 2;
     } else {
-        playerTurnSection.textContent = `${playerXName}'s turn with the Xs`;
+        playersTurnName.textContent = `${playerXName}'s turn with the Xs`;
         return playerID = 1;
     }
 
@@ -170,17 +185,17 @@ function handleChangeGrid(){
         gridContainer3X3.classList.add('hidden')
         gridContainer4X4.classList.remove('hidden')
         containerDiv.style.width = '600px'
-        handleReset()
+        handleNewGame()
         
     } else {
         gridContainer3X3.classList.remove('hidden')
         gridContainer4X4.classList.add('hidden')
         containerDiv.style.width = '500px'
-        handleReset()
+        handleNewGame()
     }
 }
 
-function handleReset(){
+function handleNewGame(){
     xCounter = 0;
     oCounter = 0;
     for(var i=0; i<cells.length; i++){
@@ -189,13 +204,21 @@ function handleReset(){
     gameOverDiv.style.display = 'none';
 }
 
+function handleReset(){
+    playerXPointsContainer.textContent = 0;
+    playerOPointsContainer.textContent = 0;
+
+    handleNewGame()
+}
+
 //Events
 for(var i=0; i<cells.length; i++){
     cells[i].addEventListener('click', handleClick)
 }
 
-resetBtn.addEventListener('click', handleReset)
+newGameBtn.addEventListener('click', handleNewGame)
 switchValue.addEventListener('click', handleChangeGrid)
+resetBtn.addEventListener('click', handleReset)
 
 //TO DO: update the player to always reset and start at x
 //TO DO: At a points system for the two players

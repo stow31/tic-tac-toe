@@ -55,7 +55,7 @@
     
             <div class="game-over-div animate__animated animate__fadeIn" hidden>
                 <div class="winner-div"></div>
-                <button class="reset-btn">New Game</button>
+                <button class="new-game-btn">New Game</button>
             </div>
     
         </div>
@@ -73,8 +73,17 @@
             
             <div class="game-details-div">
                 <section class="players-turn-section">
+                    <span style="font-size: 15px;font-weight: 900;">Who's turn?</span><p class="players-turn-name"></p>
                 </section>
-            </div>    
+                <section class="player-x-points-section">
+                    <span class="player-x-name" style="font-size: 15px;font-weight: 900;"></span><p class="players-x-points">0</p>
+                </section>
+                <section class="player-o-points-section">
+                    <span class="player-o-name" style="font-size: 15px;font-weight: 900;"></span><p class="players-o-points">0</p>
+                </section>
+            </div>   
+            
+            <button class="reset-btn">Reset</button>
         </aside>
     </main>
     
