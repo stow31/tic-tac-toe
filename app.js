@@ -56,17 +56,18 @@ playerXNameContainer.textContent = `${playerXName}'s Points (X)`
 playerONameContainer.textContent = `${playerOName}'s Points (O)` 
 
 //Functions 
-function handleClick(e){
+function handleAssignPlayerValue(e){
     var cell = e.target;
-    if (playerID === 1){
-        cell.textContent = 'X'
-    } else {
-        cell.textContent = 'O'
-        var playerOPoints = 0
+    if(cell.textContent === ''){
+        if (playerID === 1){
+            cell.textContent = 'X'
+        } else {
+            cell.textContent = 'O'
+            var playerOPoints = 0
+        }
+        announceWinner()
+        changePlayer();
     }
-
-    announceWinner()
-    changePlayer();
 }
 
 function announceWinner(){
@@ -180,7 +181,7 @@ function checkIfTie() {
     return true;
 }
 
-function handleChangeGrid(){
+function handleGridChange(){
     if (switchValue.checked){
         gridContainer3X3.classList.add('hidden')
         gridContainer4X4.classList.remove('hidden')
@@ -213,12 +214,13 @@ function handleReset(){
 
 //Events
 for(var i=0; i<cells.length; i++){
-    cells[i].addEventListener('click', handleClick)
+    cells[i].addEventListener('click', handleAssignPlayerValue)
 }
 
 newGameBtn.addEventListener('click', handleNewGame)
-switchValue.addEventListener('click', handleChangeGrid)
+switchValue.addEventListener('click', handleGridChange)
 resetBtn.addEventListener('click', handleReset)
 
 //TO DO: update the player to always reset and start at x
-//TO DO: At a points system for the two players
+//TO DO: highlight the winning row
+//TO DO: read me file
