@@ -9,6 +9,19 @@ header{
     margin-bottom: 20px;
 }
 
+main{
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    column-gap: 40px;
+    width: 80%;
+}
+
+aside{
+    font-size: 12px;
+    margin: 40px 0;
+}
+
 .switch-div{
     display: flex;
     justify-content: center;
@@ -29,13 +42,13 @@ body{
     background: radial-gradient(circle, rgba(178,188,194,1) 0%, rgba(196,219,232,1) 79%);
 }
 
-.container{
+.container-div{
     position: relative;
     display: grid;
     place-items: center;
     margin-top: 25px;
-    max-width: 550px;
-    margin: auto;
+    width: 500px;
+    margin: 0 auto;
 }
 
 .switch {
@@ -99,10 +112,10 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
-.grid-container{
+.grid-container-3x3{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, minmax(50px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, minmax(150px, 1fr));
     font-size: 100px;
     background-color: white;
@@ -113,7 +126,8 @@ input:checked + .slider:before {
 .grid-container-4x4{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, minmax(50px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+
     grid-template-rows: repeat(4, minmax(150px, 1fr));
     font-size: 100px;
     background-color: white;

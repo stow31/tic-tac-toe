@@ -15,37 +15,23 @@
     <header>
         <h1>Tic Tac Toe</h1>
         
-        <div class="switch-div">
-            <p>3x3</p>
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
-            <p>4x4</p>
-        </div>
-
-        
-        <div class="game-details-div">
-            <section class="players-turn-section">
-            </section>
-        </div>
 
 
     </header>
 
     <main>
-        <div class="container animate__animated animate__slideInUp">
+        <div class="container-div animate__animated animate__slideInUp">
 
-            <div class="grid-container">
+            <div class="grid-container-3x3">
                 <div class="cell-div size3x3" style="border-top: none; border-left: none;"></div>
-                <div class="cell-div size3x3" style="border-top: none;"></div>
-                <div class="cell-div size3x3" style="border-top: none; border-right: none;"></div>
-                <div class="cell-div size3x3" style="border-left: none;"></div>
-                <div class="cell-div size3x3"></div>
-                <div class="cell-div size3x3" style="border-right: none;"></div>
-                <div class="cell-div size3x3" style="border-left: none; border-bottom: none;"></div>
-                <div class="cell-div size3x3" style="border-bottom: none;"></div>
-                <div class="cell-div size3x3" style="border-right: none; border-bottom: none;"></div>
+                <div class="cell-div size3x3" style="border-top: none; border-left: none;"></div>
+                <div class="cell-div size3x3" style="border-top: none; border-left: none; border-right: none;"></div>
+                <div class="cell-div size3x3" style="border-top: none; border-left: none;"></div>
+                <div class="cell-div size3x3" style="border-top: none; border-left: none;"></div>
+                <div class="cell-div size3x3" style="border-top: none; border-left: none; border-right: none;"></div>
+                <div class="cell-div size3x3" style="border-top: none; border-left: none;border-bottom: none;"></div>
+                <div class="cell-div size3x3" style="border-top: none; border-left: none; border-bottom:none;"></div>
+                <div class="cell-div size3x3" style="border-top: none; border-left: none;border-bottom: none; border-right: none;"></div>
             </div>
     
             <div class="grid-container-4x4 hidden">
@@ -75,7 +61,20 @@
         </div>
     
         <aside>
+            <div class="switch-div">
+                <p>3x3</p>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <p>4x4</p>
+            </div>
     
+            
+            <div class="game-details-div">
+                <section class="players-turn-section">
+                </section>
+            </div>    
         </aside>
     </main>
     

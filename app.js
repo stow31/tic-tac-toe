@@ -3,12 +3,12 @@
 var switchValue = document.querySelector('.switch input')
 
 //All squares
+var containerDiv = document.querySelector('.container-div');
 var cells = document.querySelectorAll('.cell-div');
 var cells3x3 = document.querySelectorAll('.size3x3');
 var cells4x4 = document.querySelectorAll('.size4x4');
-
 var playerTurnSection = document.querySelector('.players-turn-section');
-var gridContainer3X3 = document.querySelector('.grid-container')
+var gridContainer3X3 = document.querySelector('.grid-container-3x3')
 var gridContainer4X4 = document.querySelector('.grid-container-4x4')
 var gameOverDiv = document.querySelector('.game-over-div');
 var winnerDiv = document.querySelector('.winner-div');
@@ -147,7 +147,6 @@ function checkforWinner4x4(){
     return false;
 }
 
-// TO DO: need to set this up for 3x3 vs 4x4 grid
 function checkIfTie() {
     if (switchValue.checked){
         for (let i = 0; i < cells4x4.length; i++) {
@@ -170,11 +169,13 @@ function handleChangeGrid(){
     if (switchValue.checked){
         gridContainer3X3.classList.add('hidden')
         gridContainer4X4.classList.remove('hidden')
+        containerDiv.style.width = '600px'
         handleReset()
         
     } else {
         gridContainer3X3.classList.remove('hidden')
         gridContainer4X4.classList.add('hidden')
+        containerDiv.style.width = '500px'
         handleReset()
     }
 }
