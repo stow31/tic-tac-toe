@@ -1,18 +1,21 @@
 //Declare variables 
 //DOM Elements
 var switchValue = document.querySelector('.switch input')
-var cells = document.querySelectorAll('.cell-div');
-var playerTurnSection = document.querySelector('.players-turn-section');
 
+//All squares
+var cells = document.querySelectorAll('.cell-div');
+var cells3x3 = document.querySelectorAll('.size3x3');
+var cells4x4 = document.querySelectorAll('.size4x4');
+
+var playerTurnSection = document.querySelector('.players-turn-section');
 var gridContainer3X3 = document.querySelector('.grid-container')
 var gridContainer4X4 = document.querySelector('.grid-container-4x4')
-
 var gameOverDiv = document.querySelector('.game-over-div');
 var winnerDiv = document.querySelector('.winner-div');
 var resetBtn = document.querySelector('.reset-btn');
 
 //General Elements
-//Update these to prompts later
+//TO DO: Update these to prompts later
 var playerXName = 'Sophie'
 var playerOName = 'Cameron'
 // 1 = player 1, 2 = player 2
@@ -31,7 +34,16 @@ var winningCombos = [
 ]
 var winningCombos4x4 = [
     [0,1,2,3],
-    [4,5,6,7]
+    [4,5,6,7],
+    [8,9,10,11],
+    [12,13,14,15],
+    [0,4,8,12],
+    [1,5,9,13],
+    [2,6,10,14],
+    [3,7,11,15],
+    [0,5,10,15],
+    [3,6,9,12]
+
 ]
 
 playerTurnSection.textContent = `${playerXName} you're up first!`
@@ -52,11 +64,12 @@ function handleClick(e){
 
 function announceWinner(){
 
-    // set up new fnt here
-    // if(){
-
-    // }
-    var winner = checkforWinner4x4();
+    // TO DO: set up new fnt here to check if it's a 4x4 or 3x3 grid
+    if (switchValue.checked){
+        var winner = checkforWinner4x4();
+    } else {
+        var winner = checkforWinner3x3();
+    }
 
     if(winner === 'X'){
         console.log("X wins");
@@ -87,15 +100,15 @@ function changePlayer(){
 
 }
 
-function checkforWinner(){
+function checkforWinner3x3(){
     for(var j=0; j<winningCombos.length; j++){
         for (var i=winningCombos[j][0]; i<=winningCombos[j][2]; i+=winningCombos[j][1]-winningCombos[j][0]){
-            if (cells[i].textContent === 'X'){
+            if (cells3x3[i].textContent === 'X'){
                 xCounter ++
                 if (xCounter === winningCombos[j].length){
                     return 'X';
                 }
-            } else if (cells[i].textContent === 'O'){
+            } else if (cells3x3[i].textContent === 'O'){
                 oCounter ++
                 if (oCounter === winningCombos[j].length){
                     return 'O';
@@ -112,12 +125,12 @@ function checkforWinner(){
 function checkforWinner4x4(){
     for(var j=0; j<winningCombos4x4.length; j++){
         for (var i=winningCombos4x4[j][0]; i<=winningCombos4x4[j][3]; i+=winningCombos4x4[j][1]-winningCombos4x4[j][0]){
-            if (cells[i].textContent === 'X'){
+            if (cells4x4[i].textContent === 'X'){
                 xCounter ++
                 if (xCounter === winningCombos4x4[j].length){
                     return 'X';
                 }
-            } else if (cells[i].textContent === 'O'){
+            } else if (cells4x4[i].textContent === 'O'){
                 oCounter ++
                 if (oCounter === winningCombos4x4[j].length){
                     return 'O';
@@ -130,6 +143,7 @@ function checkforWinner4x4(){
     return false;
 }
 
+// TO DO: need to set this up for 3x3 vs 4x4 grid
 function checkIfTie() {
     for (let i = 0; i < cells.length; i++) {
         if(cells[i].textContent === ''){
@@ -144,9 +158,12 @@ function handleChangeGrid(){
     if (switchValue.checked){
         gridContainer3X3.classList.add('hidden')
         gridContainer4X4.classList.remove('hidden')
+        handleReset()
+        
     } else {
         gridContainer3X3.classList.remove('hidden')
         gridContainer4X4.classList.add('hidden')
+        handleReset()
     }
 }
 
@@ -167,4 +184,5 @@ for(var i=0; i<cells.length; i++){
 resetBtn.addEventListener('click', handleReset)
 switchValue.addEventListener('click', handleChangeGrid)
 
-
+//TO DO: update the player to always reset and start at x
+//TO DO: At a points system for the two players

@@ -10,9 +10,8 @@ header{
 }
 
 .switch-div{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center; 
+    display: flex;
+    justify-content: center;
 }
 
 h1{
@@ -43,7 +42,7 @@ body{
     display: inline-block;
     width: 60px;
     height: 34px;
-    margin: auto;
+    margin: 0px 21px;
     margin-bottom: 10px;
 }
 
@@ -109,7 +108,6 @@ input:checked + .slider:before {
     background-color: white;
     border-radius: 26px;
     box-shadow: 10px 10px 12px #e5e5e5;
-    transition: all 0.5s linear;
 }
 
 .grid-container-4x4{
@@ -121,7 +119,6 @@ input:checked + .slider:before {
     background-color: white;
     border-radius: 26px;
     box-shadow: 10px 10px 12px #e5e5e5;
-    transition: all 0.5s linear;
 }
 
 .hidden{

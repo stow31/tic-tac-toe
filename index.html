@@ -33,45 +33,52 @@
 
     </header>
 
-    <div class="container animate__animated animate__slideInUp">
+    <main>
+        <div class="container animate__animated animate__slideInUp">
 
-        <div class="grid-container">
-            <div class="cell-div" style="border-top: none; border-left: none;"></div>
-            <div class="cell-div" style="border-top: none;"></div>
-            <div class="cell-div" style="border-top: none; border-right: none;"></div>
-            <div class="cell-div" style="border-left: none;"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div" style="border-right: none;"></div>
-            <div class="cell-div" style="border-left: none; border-bottom: none;"></div>
-            <div class="cell-div" style="border-bottom: none;"></div>
-            <div class="cell-div" style="border-right: none; border-bottom: none;"></div>
+            <div class="grid-container">
+                <div class="cell-div size3x3" style="border-top: none; border-left: none;"></div>
+                <div class="cell-div size3x3" style="border-top: none;"></div>
+                <div class="cell-div size3x3" style="border-top: none; border-right: none;"></div>
+                <div class="cell-div size3x3" style="border-left: none;"></div>
+                <div class="cell-div size3x3"></div>
+                <div class="cell-div size3x3" style="border-right: none;"></div>
+                <div class="cell-div size3x3" style="border-left: none; border-bottom: none;"></div>
+                <div class="cell-div size3x3" style="border-bottom: none;"></div>
+                <div class="cell-div size3x3" style="border-right: none; border-bottom: none;"></div>
+            </div>
+    
+            <div class="grid-container-4x4 hidden">
+                <div class="cell-div size4x4" style="border-top: none; border-left: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none; border-right: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none; border-right: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none; border-right: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none; border-bottom: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none; border-bottom: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none; border-bottom: none;"></div>
+                <div class="cell-div size4x4" style="border-top: none; border-left: none;border-bottom: none; border-right: none;"></div>    
+            </div>
+    
+            <div class="game-over-div animate__animated animate__fadeIn" hidden>
+                <div class="winner-div"></div>
+                <button class="reset-btn">New Game</button>
+            </div>
+    
         </div>
-
-        <div class="grid-container-4x4 hidden">
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>
-            <div class="cell-div"></div>    
-        </div>
-
-        <div class="game-over-div animate__animated animate__fadeIn" hidden>
-            <div class="winner-div"></div>
-            <button class="reset-btn">New Game</button>
-        </div>
-
-    </div>
+    
+        <aside>
+    
+        </aside>
+    </main>
+    
     
     <script src="app.js"></script>
 </body>
