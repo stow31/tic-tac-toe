@@ -69,7 +69,7 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #e5e5e5;
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -146,10 +146,15 @@ input:checked + .slider:before {
     /* font-weight: 800; */
 }
 
-/* span.bubble-font{
-    font-family: 'Londrina Outline', cursive;
-    font-weight: 800; 
-} */
+.winner{
+    background-color: #d9d0bb;
+    background-clip: content-box;
+    padding: 20px;
+}
+
+.winner-deactive{
+    background-color: white;
+}
 
 .game-over-div{
     height: 300px;
@@ -167,6 +172,7 @@ input:checked + .slider:before {
     border-radius: 20px 20px 20px 20px;
     color: white;
     box-shadow: 1px 0px 12px 9px #e5e5e5;
+    --animate-duration: .52s;
 }
 
 .new-game-btn{

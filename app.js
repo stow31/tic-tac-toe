@@ -22,7 +22,7 @@ var resetBtn = document.querySelector('.reset-btn');
 //General Elements
 //TO DO: Update these to prompts later
 var playerXName = 'Sophie'
-var playerOName = 'Cameron'
+var playerOName = 'Peter'
 // 1 = player 1, 2 = player 2
 var playerID = 1;
 var xCounter = 0;
@@ -128,11 +128,13 @@ function checkforWinner3x3(){
                 xCounter ++
                 if (xCounter === winningCombos[j].length){
                     // console.log(winningCombos[j]);
+                    alertWinningCells(winningCombos[j])
                     return 'X';
                 }
             } else if (cells3x3[i].textContent === 'O'){
                 oCounter ++
                 if (oCounter === winningCombos[j].length){
+                    alertWinningCells(winningCombos[j])
                     return 'O';
                 }
             }
@@ -144,17 +146,33 @@ function checkforWinner3x3(){
 
 }
 
+function alertWinningCells(winningArr){
+    if (winningArr.length === 3){
+        for (let i = 0; i < winningArr.length; i++) {
+            console.log(cells3x3[winningArr[i]]); 
+            cells3x3[winningArr[i]].classList.add('winner')
+        }
+    } else {
+        for (let i = 0; i < winningArr.length; i++) {
+            console.log(cells3x3[winningArr[i]]); 
+            cells4x4[winningArr[i]].classList.add('winner')
+        }
+    }
+}
+
 function checkforWinner4x4(){
     for(var j=0; j<winningCombos4x4.length; j++){
         for (var i=winningCombos4x4[j][0]; i<=winningCombos4x4[j][3]; i+=winningCombos4x4[j][1]-winningCombos4x4[j][0]){
             if (cells4x4[i].textContent === 'X'){
                 xCounter ++
                 if (xCounter === winningCombos4x4[j].length){
+                    alertWinningCells(winningCombos4x4[j])
                     return 'X';
                 }
             } else if (cells4x4[i].textContent === 'O'){
                 oCounter ++
                 if (oCounter === winningCombos4x4[j].length){
+                    alertWinningCells(winningCombos4x4[j])
                     return 'O';
                 }
             }
@@ -203,13 +221,19 @@ function handleNewGame(){
     oCounter = 0;
     for(var i=0; i<cells.length; i++){
         cells[i].textContent = ''
+        cells[i].classList.remove('winner')
     }
     gameOverDiv.style.display = 'none';
+    
 }
 
 function handleReset(){
     playerXPointsContainer.textContent = 0;
     playerOPointsContainer.textContent = 0;
+    playerID = 1
+    playersTurnName.textContent = `${playerXName} you're up first!`
+    playerXNameContainer.textContent = `${playerXName}'s Points (X)`
+    playerONameContainer.textContent = `${playerOName}'s Points (O)` 
 
     handleNewGame()
 }
@@ -223,6 +247,5 @@ newGameBtn.addEventListener('click', handleNewGame)
 switchValue.addEventListener('click', handleGridChange)
 resetBtn.addEventListener('click', handleReset)
 
-//TO DO: update the player to always reset and start at x
 //TO DO: highlight the winning row
 //TO DO: read me file
