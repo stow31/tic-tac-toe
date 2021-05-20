@@ -63,13 +63,7 @@ function handleClick(e){
 }
 
 function announceWinner(){
-
-    // TO DO: set up new fnt here to check if it's a 4x4 or 3x3 grid
-    if (switchValue.checked){
-        var winner = checkforWinner4x4();
-    } else {
-        var winner = checkforWinner3x3();
-    }
+    var winner = whichGameIsBeingPlayed();
 
     if(winner === 'X'){
         console.log("X wins");
@@ -86,6 +80,16 @@ function announceWinner(){
         gameOverDiv.style.display = 'flex';
         winnerDiv.textContent = `${playerXName} and ${playerOName} you tied!! A rematch?`
         return
+    }
+}
+
+function whichGameIsBeingPlayed(){
+    if (switchValue.checked){
+        var winner = checkforWinner4x4();
+        return winner
+    } else {
+        var winner = checkforWinner3x3();
+        return winner
     }
 }
 
