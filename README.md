@@ -32,11 +32,11 @@ PLAN BREAK DOWN
 - Add point system to monitor players 
 
 CURRENT UNSOLVE 
-— When the winning row is highlighted I would like the edges to be rounded 
+- When the winning row is highlighted I would like the edges to be rounded 
 - I would also like the winning row to flash
 - Should the reset button prompt the players names again or should there be another button "Change players"?
 
 THOUGHTS
-— I feel as though I could have added lots of misc. features, it was hard knowing when to stop
-— As you add more and more features it's hard to know if an old feature is going to be broken by the new one
+- I feel as though I could have added lots of misc. features, it was hard knowing when to stop
+- As you add more and more features it's hard to know if an old feature is going to be broken by the new one
 
