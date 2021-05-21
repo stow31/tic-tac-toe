@@ -65,6 +65,13 @@ body{
     font-family: 'Roboto', sans-serif;
     display: block;
     margin: 10px auto;
+    background: #d9d0bb;
+    border-top: none;
+    color: black;
+    border-radius: 6px;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px black solid;
 }
 
 .start-game{
@@ -77,6 +84,15 @@ body{
     font-family: 'Roboto', sans-serif;
     color: white;
     font-size: 15px;
+}
+
+.under-input-alert{
+    font-size: 12px;
+    color: white;
+    background-color: black;
+    padding: 5px;
+    border-radius: 8px;
+    display: none;
 }
 
 .container-div{

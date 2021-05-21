@@ -59,12 +59,20 @@ var winningCombos4x4 = [
 //Functions 
 
 function handleStartPlayingBtn(){
-    playerXName = inputPlayerOne.value;
-    playerOName = inputPlayerTwo.value;
-    playersTurnName.textContent = `${playerXName} you're up first!`
-    playerXNameContainer.textContent = `${playerXName}'s Points (X)`
-    playerONameContainer.textContent = `${playerOName}'s Points (O)`    
-    userInputPopUp.style.display = 'none';
+    if(inputPlayerOne.value === ''){
+        document.querySelector('.under-input-alert').style.display = 'block'
+    } else if (inputPlayerTwo.value === ''){ 
+        document.querySelector('.under-input-alert').textContent = "Please Enter Both Players Name";
+        document.querySelector('.under-input-alert').style.display = 'block'
+    } else {
+        playerXName = inputPlayerOne.value;
+        playerOName = inputPlayerTwo.value;
+        playersTurnName.textContent = `${playerXName} you're up first!`
+        playerXNameContainer.textContent = `${playerXName}'s Points (X)`
+        playerONameContainer.textContent = `${playerOName}'s Points (O)`    
+        userInputPopUp.style.display = 'none';
+        document.querySelector('.under-input-alert').style.display = 'none'
+    }
 }
 
 function handleAssignPlayerValue(e){
