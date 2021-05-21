@@ -3,6 +3,10 @@
 var switchValue = document.querySelector('.switch input')
 
 //All squares
+var userInputPopUp = document.querySelector('.user-input-popup')
+var inputPlayerOne = document.querySelector('.player-x-details input')
+var inputPlayerTwo = document.querySelector('.player-o-details input')
+var startGameBtn = document.querySelector('.start-game')
 var containerDiv = document.querySelector('.container-div');
 var cells = document.querySelectorAll('.cell-div');
 var cells3x3 = document.querySelectorAll('.size3x3');
@@ -20,8 +24,8 @@ var playerOPointsContainer = document.querySelector('.players-o-points');
 var resetBtn = document.querySelector('.reset-btn');
 
 //General Elements
-var playerXName = prompt('Player one enter your name. You will be X')
-var playerOName = prompt('Player two enter your name. You will be 0')
+var playerXName
+var playerOName
 // 1 = player 1, 2 = player 2
 var playerID = 1;
 var xCounter = 0;
@@ -50,11 +54,19 @@ var winningCombos4x4 = [
 
 ]
 
-playersTurnName.textContent = `${playerXName} you're up first!`
-playerXNameContainer.textContent = `${playerXName}'s Points (X)`
-playerONameContainer.textContent = `${playerOName}'s Points (O)` 
+
 
 //Functions 
+
+function handleStartPlayingBtn(){
+    playerXName = inputPlayerOne.value;
+    playerOName = inputPlayerTwo.value;
+    playersTurnName.textContent = `${playerXName} you're up first!`
+    playerXNameContainer.textContent = `${playerXName}'s Points (X)`
+    playerONameContainer.textContent = `${playerOName}'s Points (O)`    
+    userInputPopUp.style.display = 'none';
+}
+
 function handleAssignPlayerValue(e){
     var cell = e.target;
     if(cell.textContent === ''){
@@ -230,14 +242,14 @@ function handleReset(){
     playerXPointsContainer.textContent = 0;
     playerOPointsContainer.textContent = 0;
     playerID = 1
-    var playerXName = prompt('Player one enter your name. You will be X')
-    var playerOName = prompt('Player two enter your name. You will be 0')
-    playersTurnName.textContent = `${playerXName} you're up first!`
-    playerXNameContainer.textContent = `${playerXName}'s Points (X)`
-    playerONameContainer.textContent = `${playerOName}'s Points (O)` 
+    userInputPopUp.style.display = 'flex';
+    inputPlayerOne.value = ""
+    inputPlayerTwo.value = ""
     
     handleNewGame()
 }
+
+
 
 
 //Events
@@ -245,6 +257,7 @@ for(var i=0; i<cells.length; i++){
     cells[i].addEventListener('click', handleAssignPlayerValue)
 }
 
+startGameBtn.addEventListener('click', handleStartPlayingBtn)
 newGameBtn.addEventListener('click', handleNewGame)
 switchValue.addEventListener('click', handleGridChange)
 resetBtn.addEventListener('click', handleReset)
