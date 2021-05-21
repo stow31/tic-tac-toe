@@ -34,4 +34,5 @@ Current Unsolved Problems
 - Rather than using a prompt, I would like to use an input text box in a nicely designed 'pop-up'
 — When the winning row is highlighted I would like the edges to be rounded 
 - I would also like the winning row to flash
+- Should the reset button prompt the players names again or should there be another button "Change players"?
 

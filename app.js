@@ -20,9 +20,8 @@ var playerOPointsContainer = document.querySelector('.players-o-points');
 var resetBtn = document.querySelector('.reset-btn');
 
 //General Elements
-//TO DO: Update these to prompts later
-var playerXName = 'Sophie'
-var playerOName = 'Peter'
+var playerXName = prompt('Player one enter your name. You will be X')
+var playerOName = prompt('Player two enter your name. You will be 0')
 // 1 = player 1, 2 = player 2
 var playerID = 1;
 var xCounter = 0;
@@ -231,12 +230,15 @@ function handleReset(){
     playerXPointsContainer.textContent = 0;
     playerOPointsContainer.textContent = 0;
     playerID = 1
+    var playerXName = prompt('Player one enter your name. You will be X')
+    var playerOName = prompt('Player two enter your name. You will be 0')
     playersTurnName.textContent = `${playerXName} you're up first!`
     playerXNameContainer.textContent = `${playerXName}'s Points (X)`
     playerONameContainer.textContent = `${playerOName}'s Points (O)` 
-
+    
     handleNewGame()
 }
+
 
 //Events
 for(var i=0; i<cells.length; i++){
@@ -246,6 +248,3 @@ for(var i=0; i<cells.length; i++){
 newGameBtn.addEventListener('click', handleNewGame)
 switchValue.addEventListener('click', handleGridChange)
 resetBtn.addEventListener('click', handleReset)
-
-//TO DO: highlight the winning row
-//TO DO: read me file
