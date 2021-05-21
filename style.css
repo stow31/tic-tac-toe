@@ -30,13 +30,13 @@ h1{
     font-size: 86px;
     margin-top: 0px;
     margin-bottom: 10px;
+    color: white;
 }
 
 body{
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    background: rgb(178,188,194);
-    background: radial-gradient(circle, rgba(178,188,194,1) 0%, rgba(196,219,232,1) 79%);
+    background: radial-gradient(circle, #9287c294 0%, rgb(193 233 255) 140%);
 }
 
 .container-div{
@@ -147,9 +147,9 @@ input:checked + .slider:before {
 }
 
 .winner{
-    background-color: #d9d0bb;
+    background-color: #838383;
     background-clip: content-box;
-    padding: 20px;
+    padding: 10px;
 }
 
 .winner-deactive{
@@ -160,7 +160,7 @@ input:checked + .slider:before {
     height: 300px;
     width: 500px;
     border: 10px solid #d9d0bb;
-    background-color: rgba(255, 204, 204, 0.90);
+    background-color: rgba(146,135,194,0.9);
     position: absolute;
     display: none;
     place-items: center;
@@ -173,6 +173,10 @@ input:checked + .slider:before {
     color: white;
     box-shadow: 1px 0px 12px 9px #e5e5e5;
     --animate-duration: .52s;
+}
+
+.winner-div{
+    width: 90%;
 }
 
 .new-game-btn{
