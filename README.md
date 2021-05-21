@@ -1,7 +1,7 @@
 ---TIC-TAC-TOE---
 by Sophie Townsend
 
-Link:
+Link: https://stow31.github.io/tic-tac-toe/
 
 High Level Plan: 
 1. Get basic functionality working
@@ -29,3 +29,9 @@ High Level Plan:
 
 - Adding toggle and 4x4 grid 
 - Add point system to monitor players 
+
+Current Unsolved Problems
+- Rather than using a prompt, I would like to use an input text box in a nicely designed 'pop-up'
+— When the winning row is highlighted I would like the edges to be rounded 
+- I would also like the winning row to flash
+
